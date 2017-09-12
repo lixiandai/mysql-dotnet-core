@@ -12,8 +12,6 @@ using MySqlDotnetCore.Data;
 using MySqlDotnetCore.Models;
 using MySqlDotnetCore.Services;
 
-using MySQL.Data.EntityFrameworkCore;
-using MySQL.Data.EntityFrameworkCore.Extensions;
 
 namespace MySqlDotnetCore
 {
@@ -30,7 +28,7 @@ namespace MySqlDotnetCore
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseMySQL(Configuration.GetConnectionString("DefaultConnection")));
+                options.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
